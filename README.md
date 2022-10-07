@@ -7,3 +7,6 @@ RULES:
 - For moving use the keys "w, a, s, d" to move "up, left, down or right" respectively
 - If you touch the asterisks "*" you lose and the letter "F" shows in your position
 - If you want to make the AI harder, change the argument number inside the AI algorithm declaration
+
+EasyAI Repo:
+https://github.com/Zulko/easyAI
