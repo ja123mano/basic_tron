@@ -98,8 +98,10 @@ class TronController (TwoPlayerGame):
         return -100 if self.loss_condition() else 0
 
 def main():
+    "You can adjust the difficulty of the AI by changing the number in the argument of the Negamax algorithm"
     algo_neg1 = Negamax(5)
-    algo_neg2 = Negamax(15)
+    "You can add an extra AI so 2 AI's can battle inside the game"
+    #algo_neg2 = Negamax(15)
     human = Human_Player()
 
     game = TronController([AI_Player(algo_neg1), human])
