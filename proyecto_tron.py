@@ -102,8 +102,8 @@ def main():
     "You can add an extra AI so 2 AI's can battle inside the game"
     #algo_neg2 = Negamax(15)
     human = Human_Player()
-    ia1 = Negamax(5)
-    ia2 = Negamax(1)
+    ia1 = SSS(5)
+    ia2 = Negamax(5)
 
     game = TronController([AI_Player(ia1), AI_Player(ia2)])
     #game = TronController([AI_Player(ia1), human])
@@ -120,6 +120,6 @@ if __name__ == "__main__":
 
 ###########################################
 #               Analisis
-# En el caso de que las IAs tienen diferente nivel de profundidad
-# la IA1 siempre gana salvo que esta no tenga nivel 1, cada que
-# se juega con profundida 1 las IAs se suicidan
+# Similar al Escenario 1, la IA que empieza primero 
+# tiene una ventaja que le permite ganar en todos los
+# encuentros que se presente
