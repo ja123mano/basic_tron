@@ -1,6 +1,6 @@
-import numpy as np
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax, SSS
-
+import random
+temp_score = -1 * random.randint(0,1000)
 class TronController (TwoPlayerGame):
 
     def __init__ (self, players, size=(10,10)):
@@ -94,23 +94,32 @@ class TronController (TwoPlayerGame):
     def scoring (self):
         """ Funciones heurísticas """
         """ Podemos añadir más puntos de objetos adicionales """
-
-        return -100 if self.loss_condition() else 0
+        return  temp_score if self.loss_condition() else 0
 
 def main():
     "You can adjust the difficulty of the AI by changing the number in the argument of the Negamax algorithm"
-    algo_neg1 = Negamax(5)
+    #algo_neg1 = Negamax(5)
     "You can add an extra AI so 2 AI's can battle inside the game"
     #algo_neg2 = Negamax(15)
     human = Human_Player()
+    ia1 = Negamax(5)
+    ia2 = Negamax(5)
 
-    game = TronController([AI_Player(algo_neg1), human])
+    game = TronController([AI_Player(ia1), AI_Player(ia2)])
+    #game = TronController([AI_Player(ia1), human])
     game.play()
 
     if game.loss_condition():
         print(f"\nEl jugador {game.opponent_index} gana")
     else:
         print("\nEmpate")
+    print(f"Utilidad perdida: {temp_score}")
 
 if __name__ == "__main__":
     main()
+
+###########################################
+#               Analisis
+# Considero que pese a que las 2 IA's tienen el mismo nivel de profundidad,
+# el hecho que empiecen en la posición establecida influye a que en todos
+# casos gane player 1.
