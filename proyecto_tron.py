@@ -1,6 +1,6 @@
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax, SSS
 import random
-#temp_score = -1 * random.randint(0,1000)
+temp_score = -1 * random.randint(0,1000)
 class TronController (TwoPlayerGame):
 
     def __init__ (self, players, size=(10,10)):
@@ -94,7 +94,7 @@ class TronController (TwoPlayerGame):
     def scoring (self):
         """ Funciones heurísticas """
         """ Podemos añadir más puntos de objetos adicionales """
-        return  -1000 if self.loss_condition() else 0
+        return  temp_score if self.loss_condition() else 0
 
 def main():
     "You can adjust the difficulty of the AI by changing the number in the argument of the Negamax algorithm"
@@ -113,13 +113,14 @@ def main():
         print(f"\nEl jugador {game.opponent_index} gana")
     else:
         print("\nEmpate")
-    #print(f"Utilidad perdida: {temp_score}")
+    print(f"Utilidad perdida: {temp_score}")
 
 if __name__ == "__main__":
     main()
 
 ###########################################
 #               Analisis
-# Similar al Escenario 1, la IA que empieza primero 
-# tiene una ventaja que le permite ganar en todos los
-# encuentros que se presente
+# Pese al cambio de utilidad en cada ejecución del 
+# código la IA en ganar es la que comienza en cada  
+# ocasión, considero que este en su factor que afecta
+# al rendimiento del juego
