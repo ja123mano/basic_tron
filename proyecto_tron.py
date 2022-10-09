@@ -1,3 +1,4 @@
+import winsound
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax, SSS
 import random
 temp_score = -1 * random.randint(0,1000)
@@ -107,13 +108,19 @@ def main():
 
     game = TronController([AI_Player(ia1), AI_Player(ia2)])
     #game = TronController([AI_Player(ia1), human])
+    winsound.PlaySound('music/tron.wav', winsound.SND_ASYNC)
     game.play()
 
     if game.loss_condition():
         print(f"\nEl jugador {game.opponent_index} gana")
     else:
         print("\nEmpate")
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound('music/explosion.wav', winsound.SND_ASYNC)
+    input("Presione Enter para cerrar")
+    winsound.PlaySound(None, winsound.SND_PURGE)
     print(f"Utilidad perdida: {temp_score}")
+
 
 if __name__ == "__main__":
     main()
