@@ -1,4 +1,4 @@
-import numpy as np
+import winsound
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax, SSS
 
 class TronController (TwoPlayerGame):
@@ -105,12 +105,18 @@ def main():
     human = Human_Player()
 
     game = TronController([AI_Player(algo_neg1), human])
+    
+    winsound.PlaySound('music/tron.wav', winsound.SND_ASYNC)
     game.play()
 
     if game.loss_condition():
         print(f"\nEl jugador {game.opponent_index} gana")
     else:
         print("\nEmpate")
+    winsound.PlaySound(None, winsound.SND_PURGE)
+    winsound.PlaySound('music/explosion.wav', winsound.SND_ASYNC)
+    input("Presione Enter para cerrar")
+    winsound.PlaySound(None, winsound.SND_PURGE)
 
 if __name__ == "__main__":
     main()
